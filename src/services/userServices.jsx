@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const url = 'https://localhost:3000/'
+const url = 'http://localhost:3000/'
+//const url = 'https://forrent.herokuapp.com/'
 
 export const getUserData = (ext) => {
     return axios.get(url+ext,{

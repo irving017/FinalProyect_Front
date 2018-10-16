@@ -1,14 +1,14 @@
 import React from 'react'
 import {TextField,Button,Chip} from '@material-ui/core'
 
-const PostDetailDisplay = ({product,onChange,submitCom})=>{
+const PostDetailDisplay = ({product,onChange,submitCom,comments})=>{
   return(
     <div>
-      <h2 style={{textAlign:'center',marginTop:'1%'}}>Detalles del producto</h2>
+      <h2 style={{textAlign:'center',marginTop:'3%',fontSize:'2.5em', fontWeight:900}}>Detalles del producto</h2>
       <div className='detail-view'>
       <div style={{width:'70%', padding:'0 50px'}}>
-        <h2>{product.title}</h2>
-        <img style={{width:'70%'}} src={product.photoURL} alt="foto del producto"/>
+        <h2 style={{fontWeight:900}}>{product.title}</h2>
+        <img style={{width:'70%',marginBottom:50}} src={product.photoURL} alt="foto del producto"/>
         <h2>Descripción del producto</h2>
         <hr/>
         <p>{product.description}</p>
@@ -30,10 +30,14 @@ const PostDetailDisplay = ({product,onChange,submitCom})=>{
         />
         <Button onClick={submitCom} variant="contained" size="medium" color="secondary" style={{marginTop:0,marginBottom:10,marginRight:0}}>Guardar comentario</Button>
         </form>
+        {comments?comments.map((c,i)=><div style={{borderBottom:"1px solid #C6C6C6", padding:'20px 0px'}} key={i}>
+        <h3 style={{fontWeight:900}}>{c.owner.name}</h3>
+        <p>{c.content}</p>
+        </div>):''}
       </div>
       <div style={{width:'30%'}}>
         <div>
-          <h2>Pedido</h2>
+          <h2 style={{fontWeight:900}}>Pedido</h2>
           <h3>${product.price} / día </h3>
           <form>
           <TextField
@@ -61,8 +65,8 @@ const PostDetailDisplay = ({product,onChange,submitCom})=>{
         </Button>
           </form>
         </div>
-        <div>
-          <h2>Usuario</h2>
+        <div style={{marginTop:30}}>
+          <h3 style={{fontWeight:900}}>Contacto del usuario:</h3>
           <h3>{product.user?product.user.name:''} {product.user?product.user.lastname:''}</h3>
         </div>
       </div>

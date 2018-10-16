@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PostDetailDisplay from './PostDetailDisplay'
 import {getProductInfo,deleteProduct} from '../../services/productServices'
+import {getComments} from '../../services/commentServices'
 
 class  PostDetailContainer extends Component {
   state={
     product:{},
-    comment:{}
+    comment:{},
+    comments:[]
   }
 
   onChange=(e)=>{
@@ -21,18 +23,27 @@ class  PostDetailContainer extends Component {
     this.setState({comment})
   }
   
-  submitCom=(e)=>{
+  componentWillMount(){
+    const {id} = this.props.match.params
+    this.getProductInfo(id)
+    this.getComments(id)
+  }
+
+  submitCom=()=>{
     const{comment}= this.state
     deleteProduct('comment/new',comment)
-    .then(comment=>{
-      console.log(e)
+    .then(product=>{
+      this.getProductInfo(product._id)
     })
     .catch(e=>{console.log(e)})
   }
 
-  componentWillMount(){
-    const {id} = this.props.match.params
-    this.getProductInfo(id)
+  getComments = (id)=>{
+    getComments(`comment/all/${id}`)
+    .then(comments=>{
+      this.setState({comments})
+    })
+    .then(e=>console.log(e))
   }
 
   getProductInfo=(id)=>{
@@ -44,10 +55,11 @@ class  PostDetailContainer extends Component {
   }
 
   render() {
-    const {product} = this.state
+    const {product,comments} = this.state
     return (
       <PostDetailDisplay
       product= {product}
+      comments={comments}
       onChange={this.onChange}
       submitCom={this.submitCom}
       />

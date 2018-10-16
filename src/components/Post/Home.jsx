@@ -19,7 +19,7 @@ class Home extends Component {
     <div>
       <div className='home-img'>
         <div className='home-search'>
-          <h1>El lugar para rentar cualquier cosa</h1>
+          <h1 style={{fontWeight:900, fontSize:'3em'}}>El lugar para rentar cualquier cosa</h1>
             <TextField
             select
             label="Categorias"
