@@ -18,6 +18,25 @@
   color: white;
 }
 
+.toolbar{
+  display: flex;
+  justify-content: space-between;
+  background-color: red;
+  height: 5vh;
+  /* position: absolute !important; */
+  width: 100%;
+  /* z-index: 1; */
+
+}
+
+.link{
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover{
+  color: white;
+}
 .App-link {
   color: #61dafb;
 }

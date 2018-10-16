@@ -1,0 +1,27 @@
+.signupform{
+  width: 50vw;
+  height: 60vh;
+  border-radius: 3%;
+  padding:30px;
+  position: absolute;
+  top:20%;
+  left: 25vw;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 17px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 17px 2px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 17px 2px rgba(0,0,0,0.3);
+}
+.signup-input{
+  width: 90%;
+  margin-left: 5%;
+}
+.half{
+  display: flex;
+}
+.half p{
+  width: 43%;
+  margin-left: 5%
+}
+.half p:nth-child(2){
+  margin-left: 4%
+}
