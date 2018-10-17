@@ -6,7 +6,8 @@ class Pruebita extends Component {
   state={
     user:{},
     open:false,
-    open2:false
+    open2:false,
+    open3:false
   }
 
   componentWillMount(){
@@ -38,7 +39,7 @@ class Pruebita extends Component {
     .catch(e=>console.log(e))
   }
   handleClose=()=>{
-    this.setState({open:false,open2:false})
+    this.setState({open:false,open2:false, open3:false})
   }
 
   handleOpen=()=>{
@@ -48,12 +49,14 @@ class Pruebita extends Component {
   handleOpen2=()=>{
     this.setState({open2:true})
   }
+  handleOpen3=()=>{
+    this.setState({open3:true})
+  }
 
   render() {
   const {user} = this.state
     return (
       <div className='div-info'>
-        <h2>Mi Información</h2>
         <Card className='card-info'>
         <CardContent>
         <Typography variant="h5" component="h3">
@@ -62,10 +65,10 @@ class Pruebita extends Component {
         <a onClick={this.handleOpen}>Modificar</a>
         <hr/>
         <div style={{display:'flex'}}>
-          <div style={{textAlign:'right'}}>
-          <p>Nombre completo:</p> 
-          <p>Email:</p>
-          Telefono:
+          <div style={{textAlign:'left'}}>
+          <p style={{fontWeight:900}}>Nombre completo:</p> 
+          <p style={{fontWeight:900}}>Email:</p>
+          <p style={{fontWeight:900}}>Telefono:</p>
           </div>
           <div style={{textAlign:'left',marginLeft:5}}>
           <p>{user.name} {user.lastname}</p>
@@ -144,8 +147,8 @@ class Pruebita extends Component {
         <hr/>
         <div style={{display:'flex'}}>
           <div style={{textAlign:'right'}}>
-          <p>Numero de tarjeta:</p>
-          <p>Cuenta de PayPal:</p>
+          <p style={{fontWeight:900}}>Numero de tarjeta:</p>
+          <p style={{fontWeight:900}}>Cuenta de PayPal:</p>
           </div>
           <div style={{textAlign:'left',marginLeft:5}}>
           <p>{user.paymethod}</p>
@@ -189,12 +192,11 @@ class Pruebita extends Component {
         <Typography variant="h5" component="h3">
         Dirección de entrega
         </Typography>
-        <a onClick={this.handleOpen}>Modificar</a>
+        <a onClick={this.handleOpen3}>Modificar</a>
         <hr/>
         <div style={{display:'flex'}}>
           <div style={{textAlign:'right'}}>
-          <p>Dirección:</p>
-          <p>Ciudad:</p>
+          <p style={{fontWeight:900}}>Dirección:</p>
           </div>
           <div style={{textAlign:'left',marginLeft:5}}>
           <p>{user.address}</p>
@@ -203,6 +205,35 @@ class Pruebita extends Component {
         </div>
       </CardContent>
     </Card>
+    <Dialog
+      open={this.state.open3}
+      onClose={this.handleClose}
+      aria-labelledby="form-dialog-title"
+    >
+    <DialogTitle id="form-dialog-title">Edita tu info</DialogTitle>
+    <form onSubmit={this.onSubmit}>
+    <DialogContent>
+    <TextField
+      autoFocus
+      //margin="dense"
+      name="address"
+      label="Dirección"
+      type="text"
+      defaultValue={user.address}
+      fullWidth
+      onChange={this.onChange}
+    />
+    </DialogContent>
+    <DialogActions>
+      <Button onClick={this.handleClose} color="secondary">
+        Cancelar
+      </Button>
+      <Button type='submit' onClick={this.handleClose} color="primary">
+        Editar
+      </Button>
+    </DialogActions>
+    </form>
+    </Dialog>
       </div>
     );
   }

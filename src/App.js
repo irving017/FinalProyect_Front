@@ -60,7 +60,7 @@ class App extends Component {
                   <NavLink to='/profile/info' className='link'><MenuItem onClick={this.handleClose}>Perfil</MenuItem></NavLink>
                   <NavLink to='/logout' ><MenuItem onClick={this.handleClose}>Cerrar sesión</MenuItem></NavLink>
                 </Menu>
-                <NavLink to='/post/new' className='link'><Button variant='contained' color="primary">Alquila algo</Button></NavLink>
+                <NavLink to='/post/new' className='link'><Button variant='contained' style={{backgroundColor:'white',color:'#FF0000',border:'1px solid #FF0000'}}>Alquila algo</Button></NavLink>
               </div>}
         </Toolbar>
       </AppBar>

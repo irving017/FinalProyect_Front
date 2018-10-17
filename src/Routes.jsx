@@ -9,6 +9,7 @@ import AllProductsContainer from './components/Post/AllProductsContainer'
 import Home from './components/Post/Home'
 import PostDetailContainer from './components/Post/PostDetailContainer'
 
+
 const Routes = ()=>{
   return(
     <Switch>

@@ -19,7 +19,7 @@ class Home extends Component {
     <div>
       <div className='home-img'>
         <div className='home-search'>
-          <h1 style={{fontWeight:900, fontSize:'3em'}}>El lugar para rentar cualquier cosa</h1>
+          <h1 style={{fontWeight:900, fontSize:'3em',color:'white'}}>El lugar para rentar cualquier cosa</h1>
             <TextField
             select
             label="Categorias"
@@ -44,9 +44,10 @@ class Home extends Component {
             label='¿Que deseas rentar?'
             name='title'
             variant="filled"
+          
             >
             </TextField>
-            <Button onClick={this.onClick} size="small">
+            <Button onClick={this.onClick} size="small" style={{backgroundColor:'white'}}>
             <SearchIcon style={{height:40}}/>
             </Button>
         </div>

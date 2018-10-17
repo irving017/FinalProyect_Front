@@ -27,12 +27,13 @@ const ProfileDisplay = ()=>{
       <ListItemText primary="Publicaciones" />
       </ListItem>
       </NavLink>
-      <ListItem button>
+      <NavLink to='/profile/noti' className='link'><ListItem button>
       <ListItemIcon>
         <SendIcon/>
       </ListItemIcon>
       <ListItemText primary="Mensajes" />
       </ListItem>
+      </NavLink>
     </List>
     <UserRoutes/>
     </div>

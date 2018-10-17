@@ -6,9 +6,9 @@ import {NavLink} from 'react-router-dom'
 const AllProductsDisplay = ({products,showProducts,onChange})=>{
   return(
     <div>
-      <h2 style={{textAlign:'center', margin:50, fontWeight:900}}>Todos los productos disponibles</h2>
+      <h2 style={{textAlign:'center',marginTop:'3%',fontSize:'2.3em', fontWeight:900,marginBottom:'5%'}}>Todos los productos disponibles</h2>
       <div className='products-display'>
-      <div style={{padding:'10px 50px'}}>
+      <div style={{padding:'10px 50px',width:400}}>
         <h3>Filtrar por categoria</h3>
         <NavLink to='/post/allproducts'> <TextField
             select
@@ -36,7 +36,7 @@ const AllProductsDisplay = ({products,showProducts,onChange})=>{
         <Grid container spacing={Number(16)}>
         {products.map((e,i)=>
           <Grid key={i} item> 
-          <Card style={{width:'200px',marginLeft:'3%', marginTop:'5%'}}>
+          <Card style={{width:'200px',marginLeft:'3%', marginTop:'5%',height:'300px'}}>
           <CardActionArea onClick={()=>showProducts(e)}>
             <CardMedia
               component="img"
@@ -45,12 +45,16 @@ const AllProductsDisplay = ({products,showProducts,onChange})=>{
               image={e.photoURL}
               title="Contemplative Reptile"
             />
-            <CardContent>
+            <CardContent style={{display:'flex'}}>
+              <div >
               <Avatar aria-label="Recipe">
                 R
               </Avatar>
-              <p>{e.title}</p>
-              <p>${e.price} por día</p>          
+              </div>
+              <div style={{marginLeft:'10%'}}>
+              <p style={{color:'blue',fontWeight:900}}>{e.title}</p>
+              <p style={{color:'black',fontWeight:900}}>${e.price} por día</p>
+              </div>          
             </CardContent>
           </CardActionArea>
         </Card>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {getUserData} from '../../services/userServices'
 import {deleteProduct} from '../../services/productServices'
 import toastr from 'toastr'
-import {Card,CardContent,CardActionArea,CardMedia,Avatar, Dialog, DialogTitle,DialogContent,DialogContentText,Button} from '@material-ui/core'
+import {Card,CardContent,CardActionArea,CardMedia,Avatar,Button,Grid} from '@material-ui/core'
 
 class ProfilePost extends Component {
   
@@ -52,10 +52,11 @@ class ProfilePost extends Component {
     const {user, open, cProduct}=this.state
     return (
       <div>
-      <h2>Prodcutos publicados</h2>
       <div className='profile-cards'>
+      <Grid container spacing={Number(16)}>
       {user.post ? user.post.map((p,i)=>(
-        <Card key={i} style={{width:'20%',marginLeft:'3%', marginTop:'5%'}}>
+        <Grid key={i} item>
+        <Card style={{width:'200px',marginLeft:'3%', marginTop:'5%',height:'350px'}}>
         <CardActionArea onClick={()=>this.showProducts(p)}>
           <CardMedia
             component="img"
@@ -65,38 +66,23 @@ class ProfilePost extends Component {
             title="Contemplative Reptile"
             style={{width:'100%'}}
           />
-          <CardContent>
+          <CardContent style={{display:'flex'}}>
+            <div>
             <Avatar aria-label="Recipe">
               R
             </Avatar>
-            <p>{p.title}</p>
-            <p>${p.price} por día</p>          
+            </div>
+            <div style={{marginLeft:'10%',marginBottom:0}}>
+            <p style={{color:'blue',fontWeight:900}}>{p.title}</p>
+            <p style={{color:'black',fontWeight:900}}>${p.price} por día</p>
+            </div>          
           </CardContent>
         </CardActionArea>
-        <Button onClick={()=>this.deleteProduct(p)} variant="contained" size="small" color='secondary' style={{marginBottom:10,marginTop:0}}>Eliminar</Button>
+        <Button onClick={()=>this.deleteProduct(p)} variant="contained" size="small" style={{marginBottom:10,marginTop:0,backgroundColor:'white',color:'#FF0000',border:'1px solid #FF0000'}}>Eliminar</Button>
       </Card>
+      </Grid>
       )) : ""}
-        <Dialog
-          open={open}
-          onClose={this.handleClose}
-        >
-        <DialogTitle>
-        <DialogContentText
-        variant='h5'
-        >
-        {cProduct.title}
-        </DialogContentText>
-        <DialogContentText variant='h6'>
-        ${cProduct.price} por día
-        </DialogContentText>
-        </DialogTitle>
-          <DialogContent>
-            <img src={cProduct.photoURL} style={{width:'40vw'}}/>
-            <DialogContentText>
-            {cProduct.description}
-            </DialogContentText>
-          </DialogContent>
-        </Dialog>
+      </Grid>
         </div>
     </div>
     )

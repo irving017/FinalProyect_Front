@@ -1,7 +1,7 @@
 import React from 'react'
 import {TextField,Button,Chip} from '@material-ui/core'
 
-const PostDetailDisplay = ({product,onChange,submitCom,comments})=>{
+const PostDetailDisplay = ({product,onChange,submitCom,comments,newNoti,onChange2})=>{
   return(
     <div>
       <h2 style={{textAlign:'center',marginTop:'3%',fontSize:'2.5em', fontWeight:900}}>Detalles del producto</h2>
@@ -39,13 +39,13 @@ const PostDetailDisplay = ({product,onChange,submitCom,comments})=>{
         <div>
           <h2 style={{fontWeight:900}}>Pedido</h2>
           <h3>${product.price} / día </h3>
-          <form>
+          <form onSubmit={newNoti}>
           <TextField
             id="date"
             label="fecha inicial"
             type="date"
             name='initDay'
-            onChange={onChange}
+            onChange={onChange2}
             InputLabelProps={{
               shrink: true,
             }}
@@ -58,9 +58,9 @@ const PostDetailDisplay = ({product,onChange,submitCom,comments})=>{
             InputLabelProps={{
               shrink: true,
             }}
-            onChange={onChange}
+            onChange={onChange2}
           />
-          <Button variant="contained" size="medium" color="secondary" style={{marginTop:10}}>
+          <Button type='submit' variant="contained" size="medium" color="secondary" style={{marginTop:10}}>
           Reserva
         </Button>
           </form>

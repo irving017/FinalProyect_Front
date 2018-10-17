@@ -13,6 +13,7 @@ const NewPostdisplay = ({createPost,onChange,upLoad})=>{
         name='title'
         variant="outlined"
         onChange={onChange}
+        style={{width:'90%'}}
       />
       </p>
       <p>
@@ -23,6 +24,7 @@ const NewPostdisplay = ({createPost,onChange,upLoad})=>{
         name='description'
         variant="outlined"
         onChange={onChange}
+        style={{width:'90%'}}
       />
       </p>
       <p>
@@ -32,6 +34,7 @@ const NewPostdisplay = ({createPost,onChange,upLoad})=>{
         variant="outlined"
         type='number'
         onChange={onChange}
+        style={{width:'90%'}}
       />
       </p>
       <input
@@ -44,7 +47,7 @@ const NewPostdisplay = ({createPost,onChange,upLoad})=>{
       />
       <p>
       <label htmlFor="contained-button-file">
-        <Button variant="contained" component="span">
+        <Button variant="contained" component="span" style={{backgroundColor:'white',color:'#FF0000',border:'1px solid #FF0000'}}>
           Sube fotos de tu producto!
         </Button>
       </label>
@@ -60,6 +63,7 @@ const NewPostdisplay = ({createPost,onChange,upLoad})=>{
         helperText="Por favor selecciona tu categoría"
         variant="outlined"
         onChange={onChange}
+        style={{width:'90%'}}
       >
       <option value='Audio y musica'>Audio y musica</option>
       <option value='Video'>Video</option>
@@ -69,7 +73,7 @@ const NewPostdisplay = ({createPost,onChange,upLoad})=>{
       <option value='Campamento y Excursion'>Campamento y Excursión</option>
       </TextField>
       </p>
-      <Button variant='contained' color="primary" type='submit'>¡Alquila!</Button>
+      <Button variant='contained' type='submit' style={{backgroundColor:'#FF0000',color:'white'}}>¡Alquila!</Button>
       </form>
     </div>
   )

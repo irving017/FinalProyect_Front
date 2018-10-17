@@ -12,14 +12,14 @@
 
 .card-info{
   width: 100%;
-  margin-top: 30px
+  margin-top: 30px;
+  margin-bottom:10px
 }
 .card-info h3{
   text-align: start;
   color: red;
 }
 .profile-cards{
-  display: flex;
-  flex-wrap: wrap; 
+  margin-top: 30px;
   text-align: center; 
 }
