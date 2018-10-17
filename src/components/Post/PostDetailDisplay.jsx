@@ -1,7 +1,7 @@
 import React from 'react'
 import {TextField,Button,Chip} from '@material-ui/core'
 
-const PostDetailDisplay = ({product,onChange,submitCom,comments,newNoti,onChange2})=>{
+const PostDetailDisplay = ({product,onChange,submitCom,comments,newNoti,onChange2, token})=>{
   return(
     <div>
       <h2 style={{textAlign:'center',marginTop:'3%',fontSize:'2.5em', fontWeight:900}}>Detalles del producto</h2>
@@ -17,6 +17,7 @@ const PostDetailDisplay = ({product,onChange,submitCom,comments,newNoti,onChange
         <Chip label={product.category} color="secondary" style={{marginBottom:'2%'}}/>
         <h2>Comentarios sobre el producto</h2>
         <hr/>
+        {!token?'':
         <form>
         <TextField
           multiline
@@ -29,9 +30,9 @@ const PostDetailDisplay = ({product,onChange,submitCom,comments,newNoti,onChange
           onChange={onChange}
         />
         <Button onClick={submitCom} variant="contained" size="medium" color="secondary" style={{marginTop:0,marginBottom:10,marginRight:0}}>Guardar comentario</Button>
-        </form>
+        </form>}
         {comments?comments.map((c,i)=><div style={{borderBottom:"1px solid #C6C6C6", padding:'20px 0px'}} key={i}>
-        <h3 style={{fontWeight:900}}>{c.owner.name}</h3>
+        <h3 style={{fontWeight:900}}>{c.owner.name} {c.owner.lastname}</h3>
         <p>{c.content}</p>
         </div>):''}
       </div>
@@ -59,6 +60,14 @@ const PostDetailDisplay = ({product,onChange,submitCom,comments,newNoti,onChange
               shrink: true,
             }}
             onChange={onChange2}
+          />
+          <TextField
+          label="Telefono"
+          name='phone'
+          variant="outlined"
+          type='number'
+          onChange={onChange2}
+          style={{width:'90%'}}
           />
           <Button type='submit' variant="contained" size="medium" color="secondary" style={{marginTop:10}}>
           Reserva

@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const url = 'http://localhost:3000/'
+//const url = 'http://localhost:3000/'
+const url = 'https://forrent.herokuapp.com/'
 
 export const getAllProducts = (ext)=>{
   return axios.get(url+ext)

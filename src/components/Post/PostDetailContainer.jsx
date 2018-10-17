@@ -12,6 +12,12 @@ class  PostDetailContainer extends Component {
     comments:[],
     noti:{}
   }
+  componentWillMount(){
+    const {id} = this.props.match.params
+    
+    this.getProductInfo(id)
+    this.getComments(id)
+  }
 
   onChange=(e)=>{
     console.log(e.target.value)
@@ -37,12 +43,6 @@ class  PostDetailContainer extends Component {
     console.log(noti)
     this.setState({noti})
   }
-  componentWillMount(){
-    const {id} = this.props.match.params
-    this.getProductInfo(id)
-    this.getComments(id)
-  }
-
   submitCom=()=>{
     const{comment}= this.state
     deleteProduct('comment/new',comment)
@@ -72,10 +72,10 @@ class  PostDetailContainer extends Component {
   newNoti=(e)=>{
     e.preventDefault()
     const {noti}=this.state
-    if(noti.initDay === undefined || noti.lastDay === undefined){
+    if(noti.initDay === undefined || noti.lastDay === undefined || noti.phone === undefined ){
       return toastr.error('Te falto rellenar un campo')
     }
-    axios.post('http://localhost:3000/noti/new',noti,{
+    axios.post('https://forrent.herokuapp.com/noti/new',noti,{
       headers:{
       'authorizacion': localStorage.getItem('token')
       }
@@ -88,8 +88,10 @@ class  PostDetailContainer extends Component {
 
   render() {
     const {product,comments} = this.state
+    const token = localStorage.getItem('token')
     return (
       <PostDetailDisplay
+      token={token}
       product= {product}
       comments={comments}
       onChange={this.onChange}
