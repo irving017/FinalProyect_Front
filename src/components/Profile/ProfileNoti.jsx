@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import Grid from '@material-ui/core/Grid';
 
 class ProfileNoti extends Component {
   state={
@@ -60,7 +61,7 @@ getComments=()=>{
           </div>
         </div>):''}
         </div>
-        <div style={{marginLeft:50}}>
+        <div style={{marginLeft:30}}>
         <h3 style={{color:'red', fontWeight:900, fontSize:'1.2em'}}>Comentarios en publicaciones</h3>
         {comments?comments.map((c,i)=>
         <div key={i} className='not-card'>
@@ -79,6 +80,7 @@ getComments=()=>{
         </div>
         </div>
       </div>
+      
     )
   }
 }

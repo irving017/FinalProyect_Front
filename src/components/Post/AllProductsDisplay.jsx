@@ -8,7 +8,7 @@ const AllProductsDisplay = ({products,showProducts,onChange})=>{
     <div>
       <h2 style={{textAlign:'center',marginTop:'3%',fontSize:'2.3em', fontWeight:900,marginBottom:'5%'}}>Todos los productos disponibles</h2>
       <div className='products-display'>
-      <div style={{padding:'10px 50px',width:400}}>
+      <div style={{padding:'50px 50px',width:300,position:'fixed',marginTop:'-71px'}}>
         <h3>Filtrar por categoria</h3>
         <NavLink to='/post/allproducts'> <TextField
             select

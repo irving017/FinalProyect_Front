@@ -12,7 +12,7 @@ const ProfileDisplay = ()=>{
   
   return(
     <div style={{display:'flex'}}>
-    <List>
+    <List style={{paddingTop:'2%'}}>
     <NavLink to='/profile/info' className='link'><ListItem button>
       <ListItemIcon>
         <AccountCircle/>
